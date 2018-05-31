@@ -16,7 +16,7 @@ while (true) {
         continue
     }
     // Integer
-    let intCountOfExpectedSpecsThatWillBeProvided = Int(countOfExpectedSpecsThatWillBeProvided) else {
+    guard let intCountOfExpectedSpecsThatWillBeProvided = Int(countOfExpectedSpecsThatWillBeProvided) else {
         continue
     }
     if intCountOfExpectedSpecsThatWillBeProvided < 1 || intCountOfExpectedSpecsThatWillBeProvided > 10 {

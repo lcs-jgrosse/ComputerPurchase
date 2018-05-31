@@ -7,21 +7,26 @@ import Foundation
 
 // INPUT
 // Global variable, tracks how many computers we are going to collect specs for
-//var countOfExpectedSpecsThatWillBeProvided = 3
+var countOfExpectedSpecsThatWillBeProvided = -1
+
 while (true) {
     print("How many Computers will be compared?")
     
     // Not nil
-    guard let countOfExpectedSpecsThatWillBeProvided = readLine() else {
+    guard let givenInput = readLine() else {
         continue
     }
     // Integer
-    guard let intCountOfExpectedSpecsThatWillBeProvided = Int(countOfExpectedSpecsThatWillBeProvided) else {
+    guard let intCountOfExpectedSpecsThatWillBeProvided = Int(givenInput) else {
         continue
     }
     if intCountOfExpectedSpecsThatWillBeProvided < 1 || intCountOfExpectedSpecsThatWillBeProvided > 10 {
         continue
     }
+    
+    // If we got here --> valid input
+    countOfExpectedSpecsThatWillBeProvided = intCountOfExpectedSpecsThatWillBeProvided
+    break
 }
 
 // Write a loop to actually determine how many computer specs the user will provide

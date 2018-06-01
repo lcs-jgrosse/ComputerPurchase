@@ -7,7 +7,7 @@ import Foundation
 
 // INPUT
 // Global variable, tracks how many computers we are going to collect specs for
-var countOfExpectedSpecsThatWillBeProvided = -1
+var countOfExpectedSpecsThatWillBeProvided = 0
 
 while (true) {
     print("How many Computers will be compared?")
@@ -38,6 +38,8 @@ while (true) {
 // Some output may be given here if you desire
 
 // Collect the list of computer specs here
+var bestComputerSoFar = " "
+var bestComputerPower = 0
 for counter in 1...countOfExpectedSpecsThatWillBeProvided {
     
     // Ask user for the specs for a given computer
@@ -51,23 +53,31 @@ for counter in 1...countOfExpectedSpecsThatWillBeProvided {
     }
     
     // What was provided?
-    print("The given input was: \(givenInput)")
+    //print("The given input was: \(givenInput)")
     
     // NOTE:
     //
     // Some example code that may be useful
-    let exampleInput = "SuperFastComputer 1000 50 75"
-    print("The example input is: \(exampleInput)")
-    let exampleInputPieces = exampleInput.split(separator: " ")
-    let computerName = exampleInputPieces[0]
-    let computerRAM = exampleInputPieces[1]
-    let computerCPU = exampleInputPieces[2]
-    let computerDiskSpace = exampleInputPieces[3]
+    //let exampleInput = "SuperFastComputer 1000 50 75"
+    //print("The example input is: \(exampleInput)")
+    let exampleInputPieces = givenInput.split(separator: " ")
+    let computerName = String(exampleInputPieces[0])
+    let computerRAM = Int(exampleInputPieces[1])!
+    let computerCPU = Int(exampleInputPieces[2])!
+    let computerDiskSpace = Int(exampleInputPieces[3])!
     print("Computer name is: \(computerName)")
     print("Computer RAM amount is: \(computerRAM)")
     print("Computer CPU speed is: \(computerCPU)")
     print("Computer disk space is: \(computerDiskSpace)")
     
     // Implement the rest of your logic here...
+    let currentComputerPower = 2 * computerRAM + 3 * computerCPU + computerDiskSpace
+    print(currentComputerPower)
     
+    if currentComputerPower > bestComputerPower {
+        bestComputerPower = currentComputerPower
+        print(bestComputerPower)
+        bestComputerSoFar = String(computerName)
+    }
+    print("The best Computer is: \(bestComputerSoFar)")
 }

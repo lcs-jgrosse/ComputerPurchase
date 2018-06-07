@@ -72,12 +72,11 @@ for counter in 1...countOfExpectedSpecsThatWillBeProvided {
     
     // Implement the rest of your logic here...
     let currentComputerPower = 2 * computerRAM + 3 * computerCPU + computerDiskSpace
-    print(currentComputerPower)
     
     if currentComputerPower > bestComputerPower {
         bestComputerPower = currentComputerPower
-        print(bestComputerPower)
         bestComputerSoFar = String(computerName)
     }
-    print("The best Computer is: \(bestComputerSoFar)")
+    
 }
+print("The best Computer is: \(bestComputerSoFar)")
